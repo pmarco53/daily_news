@@ -1,0 +1,23 @@
+# Core do LangChain e LangGraph
+langchain>=0.2.0
+langchain-openai
+langchain-community
+langgraph
+langchain-core
+
+# Automação de Navegador
+playwright
+pytest-playwright
+
+# Interface e Utilidades
+gradio
+python-dotenv
+requests
+nest_asyncio
+IPython
+
+# Agendamento e Servidor (opcional se usar GitHub Actions, mas bom ter)
+apscheduler
+
+# Tipagem e Suporte
+typing-extensions
