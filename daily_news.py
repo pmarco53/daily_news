@@ -29,6 +29,7 @@ graph_builder = StateGraph(State)
 # Pegue esses valores do seu arquivo .env ou variáveis de ambiente
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")      # ex: "1234567890:AAF1b2C3d4e5f6g7h8i9j0kLmNoPqRsTuVwX"
 TELEGRAM_CHAT_ID    = os.getenv("CHAT_ID")        # ex: "123456789" ou "-1001987654321" (grupos)
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")#
 
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
@@ -72,7 +73,7 @@ async_browser =  create_async_playwright_browser(headless=False)  # headful mode
 toolkit = PlayWrightBrowserToolkit.from_browser(async_browser=async_browser)
 tools = toolkit.get_tools()
 
-for tool in tools:
+#for tool in tools:
     #print(f"{tool.name}={tool}")
 
 tool_dict = {tool.name:tool for tool in tools}
