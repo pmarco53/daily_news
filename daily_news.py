@@ -29,7 +29,7 @@ graph_builder = StateGraph(State)
 # Pegue esses valores do seu arquivo .env ou variáveis de ambiente
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")      # ex: "1234567890:AAF1b2C3d4e5f6g7h8i9j0kLmNoPqRsTuVwX"
 TELEGRAM_CHAT_ID    = os.getenv("CHAT_ID")        # ex: "123456789" ou "-1001987654321" (grupos)
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")#
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
@@ -69,7 +69,7 @@ from langchain_community.tools.playwright.utils import create_async_playwright_b
 
 # If you get a NotImplementedError here or later, see the Heads Up at the top of the notebook
 
-async_browser =  create_async_playwright_browser(headless=True)  # headful mode
+async_browser =  create_async_playwright_browser(headless=False)  # headful mode
 toolkit = PlayWrightBrowserToolkit.from_browser(async_browser=async_browser)
 tools = toolkit.get_tools()
 
@@ -141,11 +141,11 @@ async def executar_rotina_matinal():
     
     prompt = (
     f"Acesse a home da {site}.\n"
-    "Extraia apenas os 5 títulos das notícias principais "
-    "da página inicial.\n"
+    "Extraia os títulos e os links das 5 notícias principais "
+    "que aparecem na vitrine da página.\n"
     "Não clique nos links das notícias. Apenas leia o que está na home,\n"
-    "formate uma lista e envie para oTelegram agora.\n"
-    "Traduza para o português se estiver em outro idioma"
+    "formate uma lista e envie para o meu Telegram via tool_telegram.\n"
+    "Traduza para o português"
     )
 
     
@@ -170,8 +170,11 @@ async def main():
     #scheduler.start()
     
     #while True:
-        #await asyncio.sleep(3600)
+    #    await asyncio.sleep(3600)
 
 if __name__ == "__main__":
-    # Como você já usa nest_asyncio, podemos rodar o loop principal
-    asyncio.run(main())
+    import asyncio
+    try:
+        asyncio.run(main())
+    except (KeyboardInterrupt, SystemExit):
+        pass
