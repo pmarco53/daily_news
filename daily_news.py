@@ -162,15 +162,15 @@ async def executar_rotina_matinal():
 async def main():
     # --- TESTE MANUAL IMEDIATO ---
     #print("Executando teste inicial agora...")
-    #await executar_rotina_matinal() 
+    await executar_rotina_matinal() 
     # -----------------------------
 
-    scheduler = AsyncIOScheduler()
-    scheduler.add_job(executar_rotina_matinal, 'cron', hour=8, minute=0)
-    scheduler.start()
+    #scheduler = AsyncIOScheduler()
+    #scheduler.add_job(executar_rotina_matinal, 'cron', hour=8, minute=0)
+    #scheduler.start()
     
-    while True:
-        await asyncio.sleep(3600)
+    #while True:
+        #await asyncio.sleep(3600)
 
 if __name__ == "__main__":
     # Como você já usa nest_asyncio, podemos rodar o loop principal
