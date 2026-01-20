@@ -135,7 +135,7 @@ async def executar_rotina_matinal():
     """Função que o agendador irá chamar às 08:00"""
     print(f"Iniciando consulta de notícias: {datetime.now()}")
 
-    site = "https://techcrunch.com"
+    site = "https://cnn.com.br"
     
     # Prompt específico para o agente
     
@@ -145,7 +145,7 @@ async def executar_rotina_matinal():
     "da página inicial.\n"
     "Não clique nos links das notícias. Apenas leia o que está na home,\n"
     "formate uma lista e envie para oTelegram agora.\n"
-    "Traduza para o português"
+    "Traduza para o português se estiver em outro idioma"
     )
 
     
