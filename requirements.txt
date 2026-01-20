@@ -9,6 +9,7 @@ langchain-core
 playwright
 pytest-playwright
 beautifulsoup4
+lxml
 
 
 # Interface e Utilidades
