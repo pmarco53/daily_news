@@ -141,10 +141,10 @@ async def executar_rotina_matinal():
     
     prompt = (
     f"Acesse a home da {site}.\n"
-    "Extraia os títulos e os links das 5 notícias principais "
-    "que aparecem na vitrine da página.\n"
+    "Extraia apenas os 5 títulos das notícias principais "
+    "da página inicial.\n"
     "Não clique nos links das notícias. Apenas leia o que está na home,\n"
-    "formate uma lista e envie para o meu Telegram via tool_telegram.\n"
+    "formate uma lista e envie para oTelegram agora.\n"
     "Traduza para o português"
     )
 
