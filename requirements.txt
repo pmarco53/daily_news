@@ -8,6 +8,8 @@ langchain-core
 # Automação de Navegador
 playwright
 pytest-playwright
+beautifulsoup4
+
 
 # Interface e Utilidades
 gradio
