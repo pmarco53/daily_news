@@ -1,6 +1,7 @@
 # Core do LangChain e LangGraph
 langchain>=0.2.0
 langchain-openai
+langchain-xai
 langchain-community
 langgraph
 langchain-core

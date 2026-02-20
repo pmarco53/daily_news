@@ -12,6 +12,7 @@ from langchain_core.tools import Tool
 import asyncio
 import nest_asyncio
 from langchain_openai import ChatOpenAI
+from langchain_xai import ChatXAI
 from langgraph.checkpoint.memory import MemorySaver
 
 nest_asyncio.apply()
@@ -30,6 +31,7 @@ graph_builder = StateGraph(State)
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_TOKEN")      # ex: "1234567890:AAF1b2C3d4e5f6g7h8i9j0kLmNoPqRsTuVwX"
 TELEGRAM_CHAT_ID    = os.getenv("CHAT_ID")        # ex: "123456789" ou "-1001987654321" (grupos)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+GROK_KEY = os.getenv("GROK_KEY")
 
 TELEGRAM_API_URL = f"https://api.telegram.org/bot{TELEGRAM_BOT_TOKEN}/sendMessage"
 
@@ -99,7 +101,9 @@ import textwrap
 all_tools = tools + [tool_telegram]
 
 
-llm = ChatOpenAI(model="gpt-4o-mini")
+#llm = ChatOpenAI(model="gpt-4o-mini")
+#llm_with_tools = llm.bind_tools(all_tools)
+llm = ChatXAI(model="grok-4-0709", api_key=GROK_KEY)
 llm_with_tools = llm.bind_tools(all_tools)
 
 
