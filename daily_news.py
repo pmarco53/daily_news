@@ -101,10 +101,10 @@ import textwrap
 all_tools = tools + [tool_telegram]
 
 
-#llm = ChatOpenAI(model="gpt-4o-mini")
-#llm_with_tools = llm.bind_tools(all_tools)
-llm = ChatXAI(model="grok-4-0709", api_key=GROK_KEY)
+llm = ChatOpenAI(model="gpt-4o-mini")
 llm_with_tools = llm.bind_tools(all_tools)
+#llm = ChatXAI(model="grok-4-0709", api_key=GROK_KEY)
+#llm_with_tools = llm.bind_tools(all_tools)
 
 
 def chatbot(state: State):
